@@ -1,0 +1,416 @@
+/* -----------------------------------
+        Google Font
+ -----------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* -----------------------------------
+        Default CSS
+-----------------------------------*/
+:root {
+    --color-main: #4ddf9d;
+    --color-hover: #32c997;
+    --pure: #ffffff;
+    --header-font: 'Jura', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-main);
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
+
+::placeholder {
+    color: #bbb !important;
+    font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Jura', sans-serif;
+    font-weight: 700 !important;
+    color: #232425;
+    letter-spacing: -1px;
+}
+
+p {
+    font-weight: 400;
+    color: #565758;
+    line-height: 1.7em;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.btn {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 13px 34px;
+}
+
+.btn-custom {
+    background-color: var(--color-main);
+    color: var(--pure) !important;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+
+.btn-outline-custom {
+    color: var(--color-hover) !important;
+    border: 1px solid var(--color-hover);
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+
+.btn-custom:hover,
+.btn-outline-custom:hover {
+    color: var(--pure) !important;
+    background-color: var(--color-hover);
+    box-shadow: 0 15px 30px -10px var(--color-main);
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-form-control-bg);
+    border-color: var(--color-main);
+    border-left: 5px solid var(--color-main);
+    outline: 0;
+    box-shadow: none;
+}
+
+.nomar {
+    margin: -20px 0 0px;
+}
+
+.section-header {
+    text-align: center;
+}
+
+.section-header p {
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.py-100 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.py-100-30 {
+    padding-top: 100px;
+    padding-bottom: 70px;
+}
+
+.bg-custom {
+    background-color: var(--color-main);
+}
+.custom-color {
+    color: var(--color-main);
+}
+
+.shadow-custom {
+    box-shadow: 0 10px 60px -20px #0001;
+}
+
+.bread span:last-child {
+    display: none;
+}
+
+/* Swipper CSS */
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper,
+.swiper-container {
+    padding: 30px;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    background: #fff;
+    /*Centerslidetextvertically*/
+    box-shadow: 0 10px 20px 0px #00000008;
+    border: 1px solid #ddd9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    background: var(--color-main);
+    color: var(--pure);
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+
+    position: absolute;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 25px;
+}
+
+/* -----------------------------------
+        Header CSS
+ -----------------------------------*/
+.header-area {
+    background-color: #ffffffaa;
+    box-shadow: 0 0 100px 0 #00000012;
+    backdrop-filter: blur(10px);
+}
+.logo img {
+    width: 90px;
+}
+
+.navbar {
+    padding: 10px !important;
+}
+
+.nav-link {
+    position: relative;
+}
+a.nav-link::after {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: 4px;
+    background-color: var(--color-main);
+    left: 10px;
+    bottom: 15px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+a.nav-link:hover::after {
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 4px;
+    background-color: var(--color-main);
+    left: 10px;
+    bottom: 15px;
+}
+
+/* -----------------------------------
+        Hero CSS
+ -----------------------------------*/
+.hero-area {
+    background: linear-gradient(to right, #ffffff, #ffffff81),
+        url('./assets/bg.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+.hero-area .hero-info h1 {
+    font-weight: 700;
+    line-height: 1.1em;
+    letter-spacing: -3px;
+    padding-bottom: 10px;
+}
+
+/* -----------------------------------
+        Single Service CSS
+ -----------------------------------*/
+
+.single-service {
+    text-align: left;
+}
+
+img#service-thumbnail {
+    min-width: 280px;
+    height: 250px;
+    border-radius: 30px 30px 0px 0px !important;
+    -webkit-border-radius: 30px 30px 0px 0px !important;
+    -moz-border-radius: 30px 30px 0px 0px !important;
+    -ms-border-radius: 30px 30px 0px 0px !important;
+    -o-border-radius: 30px 30px 0px 0px !important;
+}
+
+.mySingleService {
+    background: var(--pure) !important;
+    margin: 30px 0;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    box-shadow: 0 20px 60px -10px #00000012;
+}
+
+.mySingleService img {
+    min-width: 300px;
+    width: 100%;
+}
+
+/* -----------------------------------
+        How we work CSS
+ -----------------------------------*/
+
+.work-single-card {
+    background-color: var(--pure);
+    border-bottom: 5px solid transparent !important;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+
+.work-single-card:hover {
+    margin-top: -5px;
+    border-bottom: 5px solid var(--color-main) !important;
+}
+.work-card i {
+    font-size: 20px;
+    background-color: var(--color-main);
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: var(--pure);
+    display: block;
+}
+
+/* -----------------------------------
+        Footer CSS
+ -----------------------------------*/
+.footer-area > * {
+    color: #b0b5bb;
+}
+.footer-widget h6 {
+    padding-left: 20px;
+}
+.footer-nav li {
+    padding: 5px 0;
+}
+.footer-nav li a {
+    text-decoration: none;
+    color: #b0b0b0;
+}
+.footer-nav li a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+.backtotop {
+    text-align: right;
+    margin-right: 100px;
+    margin-top: -40px;
+    margin-bottom: -40px;
+}
+
+.backtotop a {
+    color: var(--color-main);
+    font-size: 50px;
+    background-color: #0001;
+    display: inline-block;
+    backdrop-filter: blur(15px);
+}
+
+/* -----------------------------------
+        Contact Page CSS
+ -----------------------------------*/
+
+.single-info {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    box-shadow: 0 20px 50px 0 #0001;
+    padding: 30px 50px 10px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.single-info .icon-box {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    color: var(--pure);
+    font-size: 30px;
+    background: var(--color-main);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.mymap {
+    margin-bottom: -10px;
+}
