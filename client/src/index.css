@@ -8,6 +8,7 @@
 -----------------------------------*/
 :root {
     --color-main: #4ddf9d;
+    --color-main-shade: #ccf0e5;
     --color-hover: #32c997;
     --pure: #ffffff;
     --header-font: 'Jura', sans-serif;
@@ -413,4 +414,10 @@ img#service-thumbnail {
 
 .mymap {
     margin-bottom: -10px;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--color-main-shade);
+    color: var(--dark);
+    font-weight: 700;
 }

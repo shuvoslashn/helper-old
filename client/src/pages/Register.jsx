@@ -39,8 +39,6 @@ const Register = () => {
 
     return (
         <>
-            {/* <Layout> */}
-            {/* <PageHeader title='Register Page' /> */}
             <div className='form-area bg-light pt-5'>
                 <div className='container'>
                     <div className='shadow w-50 m-auto p-5 bg-white rounded-4'>

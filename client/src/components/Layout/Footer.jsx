@@ -6,28 +6,34 @@ const Footer = () => {
             <div className='footer-top py-5'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-md-4'>
+                        <div className='col-md-5 pe-5'>
                             <Link className='footer-widget logo' to={'/'}>
                                 <img src={logoLight} alt='' />
                             </Link>
                             <p className='pt-2 text-white-50'>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Sed, dolorem amet ducimus sunt
-                                impedit illum neque nisi.
+                                olor sit amet consectetur adipiscing elit massa
+                                non torquent turpis ultricies augue varius
+                                montes interdum, vulputate fames facilisis velit
+                                pharetra habitasse.
                             </p>
                         </div>
-                        <div className='col-md-2'>
+                        {/* <div className='col-md-1'></div> */}
+                        <div className='col-md-3'>
                             <div className='footer-widget'>
                                 <h6 className='text-light'>Quick Links</h6>
                                 <ul className='footer-nav'>
                                     <li>
-                                        <a href='/'>About Us</a>
+                                        <Link to={'/terms-and-conditions'}>
+                                            Terms & Conditions
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href='/'>About Us</a>
+                                        <Link to={'/privacy-policy'}>
+                                            Privacy Policy
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href='/'>About Us</a>
+                                        <Link to={'/faqs'}>FAQs</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -35,22 +41,6 @@ const Footer = () => {
                         <div className='col-md-2'>
                             <div className='footer-widget'>
                                 <h6 className='text-light'>Business</h6>
-                                <ul className='footer-nav'>
-                                    <li>
-                                        <a href='/'>About Us</a>
-                                    </li>
-                                    <li>
-                                        <a href='/'>About Us</a>
-                                    </li>
-                                    <li>
-                                        <a href='/'>About Us</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className='col-md-2'>
-                            <div className='footer-widget'>
-                                <h6 className='text-light'>Help</h6>
                                 <ul className='footer-nav'>
                                     <li>
                                         <a href='/'>About Us</a>

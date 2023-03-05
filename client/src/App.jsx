@@ -7,6 +7,9 @@ import Contactpage from './pages/Contactpage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ServiceDetails from './pages/ServiceDetails';
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Faqs from './pages/Faqs';
 
 function App() {
     return (
@@ -20,7 +23,13 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route
-                        path='/service-details/:id'
+                        path='/terms-and-conditions'
+                        element={<TermsAndConditions />}
+                    />
+                    <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                    <Route path='/faqs' element={<Faqs />} />
+                    <Route
+                        path='/single-service/'
                         element={<ServiceDetails />}
                     />
                 </Routes>
