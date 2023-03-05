@@ -10,6 +10,7 @@ import ServiceDetails from './pages/ServiceDetails';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Faqs from './pages/Faqs';
+import ChangePassword from './pages/ChangePassword';
 
 function App() {
     return (
@@ -22,6 +23,10 @@ function App() {
                     <Route path='/contact' element={<Contactpage />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
+                    <Route
+                        path='/change-password'
+                        element={<ChangePassword />}
+                    />
                     <Route
                         path='/terms-and-conditions'
                         element={<TermsAndConditions />}

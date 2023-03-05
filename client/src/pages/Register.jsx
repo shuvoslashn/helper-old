@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from '../services/axiosInterceptor.jsx';
 import Layout from '../components/Layout/Layout';
 import PageHeader from '../components/PageHeader';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+    const navigate = useNavigate();
+
     const [user, setUser] = useState({
-        fullname: '',
+        name: '',
         email: '',
         password: '',
     });
@@ -29,31 +33,36 @@ const Register = () => {
         });
     };
 
-    const register = () => {
-        const { fullname, email, password } = user;
-        axios
-            .post('http://localhost:8080/api/v1/user/register', user)
-            .then((res) => console.log(res))
-            .catch(console.log(error));
+    // Register function
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        const res = await axios.post('api/auth/users/register', user);
+
+        if (res.status === 201) {
+            toast.success('Registration Successful');
+            setTimeout(() => {
+                navigate('/login');
+            }, 2000);
+        }
     };
 
     return (
         <>
-            <div className='form-area bg-light pt-5'>
+            <div className='form-area pt-5'>
                 <div className='container'>
-                    <div className='shadow w-50 m-auto p-5 bg-white rounded-4'>
+                    <form
+                        onSubmit={handleRegister}
+                        className='shadow w-50 m-auto p-5 bg-white rounded-4'
+                    >
                         <h3 className='mb-4'>Registration Form</h3>
                         <div className='single-input pb-3'>
-                            <label
-                                htmlFor='fullname'
-                                className='pb-2 fw-medium'
-                            >
+                            <label htmlFor='name' className='pb-2 fw-medium'>
                                 Full Name
                             </label>
                             <input
                                 type='text'
                                 name='name'
-                                id='fullname'
+                                id='name'
                                 className='form-control'
                                 placeholder='ex. Jhone Doe'
                                 required
@@ -102,14 +111,20 @@ const Register = () => {
                             <label htmlFor='showpass'>Show/Hide Password</label>
                         </div>
                         <div className='d-flex justify-content-between align-items-center'>
-                            <div className='btn btn-custom' onClick={register}>
+                            <button type='submit' className='btn btn-custom'>
                                 Register Now
-                            </div>
+                            </button>
+
                             <p className='pt-3'>
                                 Already have an account?{' '}
                                 <Link to={'/login'}>Login Here</Link>
                             </p>
                         </div>
+                        <ToastContainer />
+                    </form>
+                    <div className='py-4 text-center'>
+                        <i className='bi bi-arrow-left-short' />
+                        <Link to={'/'}>Back to Home</Link>
                     </div>
                 </div>
             </div>

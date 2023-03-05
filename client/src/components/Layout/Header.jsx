@@ -1,14 +1,30 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logoDark from './../../assets/logoDark.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
+    const navigate = useNavigate();
+    const userName = localStorage.getItem('name');
+    const handleLogout = () => {
+        toast.warn('Logout Successful');
+        localStorage.removeItem('token');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        setTimeout(() => {
+            navigate('/login');
+        }, 1500);
+    };
     return (
         <>
             <div id='back-to-top'></div>
             <header className='header-area fixed-top w-100'>
                 <nav className='navbar navbar-expand-lg'>
                     <div className='container'>
-                        <Link className='navbar-brand logo' to={'/'}>
+                        <Link
+                            className='navbar-brand logo'
+                            to={'http://localhost:5173/#back-to-top'}
+                        >
                             <img src={logoDark} alt='' />
                         </Link>
                         <button
@@ -47,14 +63,47 @@ const Header = () => {
                                         Contact Us
                                     </Link>
                                 </li>
-                                <li className='nav-item'>
-                                    <Link
-                                        className='btn btn-custom'
-                                        to={'/register'}
-                                    >
-                                        Join Now
-                                    </Link>
-                                </li>
+
+                                {userName ? (
+                                    <li className='nav-item dropdown'>
+                                        <a
+                                            className='nav-link dropdown-toggle'
+                                            href='#'
+                                            role='button'
+                                            data-bs-toggle='dropdown'
+                                            aria-expanded='false'
+                                        >
+                                            Hi, {userName}
+                                        </a>
+                                        <ul className='dropdown-menu'>
+                                            <li>
+                                                <Link
+                                                    className='dropdown-item'
+                                                    to={'/change-password'}
+                                                >
+                                                    Change Password
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    className='btn btn-custom dropdown-item'
+                                                    onClick={handleLogout}
+                                                >
+                                                    Logout
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                ) : (
+                                    <li className='nav-item'>
+                                        <Link
+                                            className='btn btn-custom'
+                                            to={'/register'}
+                                        >
+                                            Join Now
+                                        </Link>
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     </div>

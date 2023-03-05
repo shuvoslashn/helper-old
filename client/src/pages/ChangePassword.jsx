@@ -4,12 +4,14 @@ import axios from '../services/axiosInterceptor.jsx';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Login = () => {
+const ChangePassword = () => {
     const navigate = useNavigate();
 
+    const token = localStorage.getItem('token');
+
     const [user, setUser] = useState({
-        email: '',
-        password: '',
+        newPassword: '',
+        confirmPassword: '',
     });
 
     let [inputType, setInputType] = useState('password');
@@ -30,19 +32,28 @@ const Login = () => {
         });
     };
 
-    // Login function
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        const res = await axios.post('api/auth/users/login', user);
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        navigate('/login');
+    };
 
-        if (res.status === 200) {
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('name', res.data.name);
-            localStorage.setItem('email', res.data.email);
-            toast.success('Login Successful');
+    // ChangePassword function
+    const handleChangePassword = async (e) => {
+        e.preventDefault();
+        const res = await axios.post('api/auth/change-password', user, {
+            headers: {
+                authorization: `Bearer ${token}`,
+            },
+        });
+
+        if (res.status === 201) {
+            toast.success('Password Change Successfully');
             setTimeout(() => {
-                navigate('/');
-            }, 2000);
+                handleLogout();
+                navigate('/login');
+            }, 1500);
         }
     };
 
@@ -51,41 +62,44 @@ const Login = () => {
             <div className='form-area pt-5'>
                 <div className='container'>
                     <form
-                        onSubmit={handleLogin}
+                        onSubmit={handleChangePassword}
                         className='shadow w-50 m-auto p-5 bg-white rounded-4'
                     >
-                        <h3 className='mb-4'>Login Form</h3>
+                        <h3 className='mb-4'>Reset Password</h3>
 
                         <div className='single-input pb-3'>
-                            <label htmlFor='email' className='pb-2 fw-medium'>
-                                Email Address
+                            <label
+                                htmlFor='newPassword'
+                                className='pb-2 fw-medium'
+                            >
+                                New Password
                             </label>
                             <input
-                                type='text'
-                                name='email'
-                                id='email'
+                                type={inputType}
+                                name='newPassword'
+                                id='newPassword'
                                 className='form-control'
-                                placeholder='ex. jhonedone123@gmail.com'
+                                placeholder='ex. *******'
                                 required
-                                value={user.email}
+                                value={user.newPassword}
                                 onChange={handleChange}
                             />
                         </div>
                         <div className='single-input pb-3'>
                             <label
-                                htmlFor='password'
+                                htmlFor='confirmPassword'
                                 className='pb-2 fw-medium'
                             >
-                                Password
+                                Confirm Password
                             </label>
                             <input
                                 type={inputType}
-                                name='password'
-                                id='password'
+                                name='confirmPassword'
+                                id='confirmPassword'
                                 className='form-control'
                                 placeholder='********'
                                 required
-                                value={user.password}
+                                value={user.confirmPassword}
                                 onChange={handleChange}
                             />
                             <input
@@ -98,12 +112,12 @@ const Login = () => {
                         </div>
                         <div className='d-flex justify-content-between align-items-center'>
                             <button type='submit' className='btn btn-custom'>
-                                Login Now
+                                ChangePassword Now
                             </button>
 
                             <p className='pt-3'>
-                                Not have an account?{' '}
-                                <Link to={'/register'}>Register Now</Link>
+                                Back to Login{' '}
+                                <Link to={'/register'}>Login</Link>
                             </p>
                         </div>
                         <ToastContainer />
@@ -119,4 +133,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default ChangePassword;

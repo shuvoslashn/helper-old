@@ -231,7 +231,13 @@ a {
 .nav-link {
     position: relative;
 }
-a.nav-link::after {
+
+.dropdown-item {
+    font-size: 15px !important;
+    padding: 10px 20px !important;
+}
+
+a.nav-link::before {
     position: absolute;
     content: '';
     width: 0%;
@@ -250,7 +256,7 @@ a.nav-link::after {
     -ms-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
 }
-a.nav-link:hover::after {
+a.nav-link:hover::before {
     position: absolute;
     content: '';
     width: 80%;
