@@ -1,6 +1,6 @@
 import './App.css';
 import Homepage from './pages/Homepage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Aboutpage from './pages/Aboutpage';
 import Servicespage from './pages/Servicespage';
 import Contactpage from './pages/Contactpage';
@@ -12,8 +12,10 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Faqs from './pages/Faqs';
 import ChangePassword from './pages/ChangePassword';
 import BuyerProfile from './pages/BuyerProfile';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
+    const token = localStorage.getItem('token');
     return (
         <>
             <BrowserRouter>
@@ -24,10 +26,25 @@ function App() {
                     <Route path='/contact' element={<Contactpage />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
-                    <Route path='/buyer-profile' element={<BuyerProfile />} />
+                    <Route
+                        path='/buyer-profile'
+                        element={
+                            token ? (
+                                <BuyerProfile />
+                            ) : (
+                                <Navigate to={'/login'} />
+                            )
+                        }
+                    />
                     <Route
                         path='/change-password'
-                        element={<ChangePassword />}
+                        element={
+                            token ? (
+                                <ChangePassword />
+                            ) : (
+                                <Navigate to={'/login'} />
+                            )
+                        }
                     />
                     <Route
                         path='/terms-and-conditions'
@@ -39,6 +56,7 @@ function App() {
                         path='/single-service/'
                         element={<ServiceDetails />}
                     />
+                    <Route path='*' element={<PageNotFound />} />
                 </Routes>
             </BrowserRouter>
         </>
