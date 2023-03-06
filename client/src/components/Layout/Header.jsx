@@ -7,7 +7,7 @@ const Header = () => {
     const navigate = useNavigate();
     const userName = localStorage.getItem('name');
     const handleLogout = () => {
-        toast.warn('Logout Successful');
+        toast.success('Logout Successful');
         localStorage.removeItem('token');
         localStorage.removeItem('name');
         localStorage.removeItem('email');
@@ -76,6 +76,14 @@ const Header = () => {
                                             Hi, {userName}
                                         </a>
                                         <ul className='dropdown-menu'>
+                                            <li>
+                                                <Link
+                                                    className='dropdown-item'
+                                                    to={'/buyer-profile'}
+                                                >
+                                                    Profile
+                                                </Link>
+                                            </li>
                                             <li>
                                                 <Link
                                                     className='dropdown-item'

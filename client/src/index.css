@@ -170,7 +170,7 @@ a {
 }
 
 .swiper-slide {
-    background: #fff;
+    background: var(--pure);
     /*Centerslidetextvertically*/
     box-shadow: 0 10px 20px 0px #00000008;
     border: 1px solid #ddd9;

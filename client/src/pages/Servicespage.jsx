@@ -16,7 +16,7 @@ const Servicespage = () => {
             setTimeout(() => {
                 setLoading(() => (loading = false));
                 return setMyData(res.data.products);
-            }, 3000);
+            }, 2000);
         });
     }, []);
 

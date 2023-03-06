@@ -15,9 +15,6 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Home Route');
-});
 
 // routes
 app.use('/api/auth', authRoutes);

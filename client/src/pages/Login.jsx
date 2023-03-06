@@ -33,16 +33,22 @@ const Login = () => {
     // Login function
     const handleLogin = async (e) => {
         e.preventDefault();
-        const res = await axios.post('api/auth/users/login', user);
 
-        if (res.status === 200) {
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('name', res.data.name);
-            localStorage.setItem('email', res.data.email);
-            toast.success('Login Successful');
-            setTimeout(() => {
-                navigate('/');
-            }, 2000);
+        try {
+            const res = await axios.post('api/auth/users/login', user);
+            if (res.status === 200) {
+                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('name', res.data.name);
+                localStorage.setItem('email', res.data.email);
+                toast.success('Login Successful');
+                setTimeout(() => {
+                    navigate('/');
+                }, 2000);
+            } else {
+                toast(res.data.message);
+            }
+        } catch (error) {
+            toast.error('Invalid information');
         }
     };
 

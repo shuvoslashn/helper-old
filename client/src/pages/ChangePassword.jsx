@@ -42,18 +42,22 @@ const ChangePassword = () => {
     // ChangePassword function
     const handleChangePassword = async (e) => {
         e.preventDefault();
-        const res = await axios.post('api/auth/change-password', user, {
-            headers: {
-                authorization: `Bearer ${token}`,
-            },
-        });
+        try {
+            const res = await axios.post('api/auth/change-password', user, {
+                headers: {
+                    authorization: `Bearer ${token}`,
+                },
+            });
 
-        if (res.status === 201) {
-            toast.success('Password Change Successfully');
-            setTimeout(() => {
-                handleLogout();
-                navigate('/login');
-            }, 1500);
+            if (res.status === 201) {
+                toast.success('Password Change Successfully');
+                setTimeout(() => {
+                    handleLogout();
+                    navigate('/login');
+                }, 1500);
+            }
+        } catch (error) {
+            toast.error('New Password and Confirm Password Must be same');
         }
     };
 
