@@ -74,28 +74,35 @@ const Contactpage = () => {
                                         officia unde modi ut, similique dolores
                                         temporibus sequi explicabo?
                                     </p>
-                                    <form action='/'>
+                                    <form
+                                        action='https://formspree.io/f/mwkjbzbz'
+                                        method='post'
+                                    >
                                         <div className='d-flex gap-3 pb-3'>
                                             <div className='input-box w-100'>
-                                                <label htmlFor='fullname'>
+                                                <label htmlFor='name'>
                                                     Full name
                                                 </label>
                                                 <input
                                                     type='text'
                                                     className='form-control mt-1'
                                                     placeholder='ex. Jhon Doe'
-                                                    id='fullname'
+                                                    id='name'
+                                                    name='name'
+                                                    required
                                                 />
                                             </div>
                                             <div className='input-box w-100'>
-                                                <label htmlFor='emailaddress'>
+                                                <label htmlFor='email'>
                                                     Email Address
                                                 </label>
                                                 <input
-                                                    type='text'
+                                                    type='email'
                                                     className='form-control mt-1'
-                                                    placeholder='ex. 01710 000 000'
-                                                    id='emailaddress'
+                                                    placeholder='ex. abcd@ef.com'
+                                                    id='email'
+                                                    name='email'
+                                                    required
                                                 />
                                             </div>
                                         </div>
@@ -107,32 +114,35 @@ const Contactpage = () => {
                                                 <input
                                                     type='text'
                                                     className='form-control mt-1'
-                                                    placeholder='ex. Jhon Doe'
+                                                    placeholder='ex. Order not placed'
                                                     id='subject'
+                                                    name='subject'
                                                 />
                                             </div>
                                             <div className='input-box w-100'>
-                                                <label htmlFor='phoneno'>
+                                                <label htmlFor='phone'>
                                                     Phone Number
                                                 </label>
                                                 <input
                                                     type='text'
                                                     className='form-control mt-1'
                                                     placeholder='ex. 01710 000 000'
-                                                    id='phoneno'
+                                                    id='phone'
+                                                    name='phone'
                                                 />
                                             </div>
                                         </div>
                                         <div className='input-box w-100 pb-3'>
-                                            <label htmlFor='msg'>
+                                            <label htmlFor='message'>
                                                 Drop up a message
                                             </label>
                                             <textarea
                                                 type='text'
                                                 className='form-control mt-1'
-                                                placeholder='ex. 01710 000 000'
-                                                id='msg'
+                                                placeholder='ex. Describe your opinion or complain'
+                                                id='message'
                                                 rows='5'
+                                                name='message'
                                             ></textarea>
                                         </div>
                                         <button
